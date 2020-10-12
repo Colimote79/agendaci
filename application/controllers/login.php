@@ -11,9 +11,7 @@ class Login extends CI_Controller {
 
 	public function index() {
 		$data['title'] = "Inicio de sesion";
-        //$this->load->view('plantilla/encabezado', $data);
         $this->load->view('login/index');
-        //$this->load->view('plantilla/pie');
     }
     
     public function iniciarSesion() {
@@ -27,9 +25,10 @@ class Login extends CI_Controller {
 
         try {
             $session_data = array(
-                'userName'  =>  $result->nombre,
-                'usuario'   =>  $result->usuario,
-                'userId'    =>  $result->id_usuario
+                'idUsuario'     =>  $result->id_usuario,
+                'usuario'       =>  $result->usuario,
+                'nombreUsuario' =>  $result->nombre,
+                'dependencia'   =>  $result->dependencia
             );
             
             // Add user data in session
@@ -42,13 +41,14 @@ class Login extends CI_Controller {
     }
 
     // Logout from admin page
-    public function logout() {
+    public function cerrarSesion() {
 
         // Removing session data
         $sess_array = array(
-            'userName'  => '',
-            'usuario'   => '',
-            'userId'    => ''
+            'idUsuario'     => '',
+            'usuario'       => '',
+            'nombreUsuario' => '',
+            'dependencia'   => ''
         );
 
         $this->session->unset_userdata('logged_in', $sess_array);

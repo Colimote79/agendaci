@@ -9,7 +9,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo CSS ?>fontawesome-5.15.1.min.css">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?php echo CSS ?>bootstrap-3.3.7.min.css">
+    <link rel="stylesheet" href="<?php echo CSS ?>bootstrap-4.5.2.min.css">
     <!-- Alertify -->
     <link rel="stylesheet" href="<?php echo CSS ?>alertify-1.13.1.min.css">
     <!-- Hoja de estilos propia -->
@@ -25,25 +25,29 @@
             <i class="fas fa-user-edit fa-3x"></i>
         </div>
 
-        <form class="form-horizontal" id="frmLogin" method="post">
+        <form class="form" id="frmLogin">
         
-        <div class="form-group">
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1"><i class="fas fa-user"></i></span>
-                <input type="text" id="txtUsuario" name="usuario" class="form-control" maxlength="20" pattern="[A-Za-z0-9.-_]{4,20}" placeholder="Nombre de usuario" required autofocus>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                    </div>
+                    <input type="text" id="txtUsuario" name="usuario" class="form-control" maxlength="20" pattern="[A-Za-z0-9.-_]{4,20}" placeholder="Nombre de usuario" required autofocus>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1"><i class="fas fa-lock"></i></span>
-                <input type="password" id="txtPassword" name="password" class="form-control" maxlength="20" pattern="[A-Za-z0-9.-_]{6,20}" placeholder="Contraseña" required>
+            <div class="form-group">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                    </div>
+                    <input type="password" id="txtPassword" name="password" class="form-control" maxlength="20" pattern="[A-Za-z0-9.-_]{6,20}" placeholder="Contraseña" required>
+                </div>
             </div>
-        </div>
-        
-        <div class="row">
-            <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Acceder</button>
-        </div>
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-user-circle"></i>&nbsp;&nbsp;Acceder</button>
+            </div>
 
         </form>
       
@@ -63,9 +67,9 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="<?php echo JS ?>jquery-3.4.1.min.js"></script>
+    <script src="<?php echo JS ?>jquery-3.5.1.min.js"></script>
     <!-- Bootstrap -->
-    <script src="<?php echo JS ?>bootstrap-3.3.7.min.js"></script>
+    <script src="<?php echo JS ?>bootstrap-4.5.2.min.js"></script>
     <!-- Alertify -->
     <script src="<?php echo JS ?>alertify-1.13.1.min.js"></script>
     <script src="<?php echo JS ?>alertify.init.js"></script>

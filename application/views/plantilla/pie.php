@@ -1,38 +1,34 @@
-		</section> <!-- /.content container-fluid -->
+		</div> <!-- /.content -->
     </div> <!-- /.content-wrapper -->
 
 	<!-- Main Footer -->
-	<footer class="main-footer">
+	<footer class="main-footer text-center" style="height: 80px; padding-top:0">
         <img class="divisor-tri" src="<?php echo IMG ?>divisor.png" alt="Divisor">
-        <div>
-            <strong>&copy; <?php echo date("Y"); ?></strong> Secretariado Ejecutivo del Sistema Estatal de Seguridad Pública
-        </div>
-        <div>
-            Emilio Carranza esq. Ejército Nacional S/N, colonia Centro, C.P. 28000, Colima, Colima, México. Tel (312) 316-2603
-        </div>
-        <div>
-            <a href="http://www.secretariadoejecutivo.col.gob.mx" target="_blank">www.secretariadoejecutivo.col.gob.mx</a>
-        </div>
+        <div><strong>&copy; <?php echo date("Y"); ?></strong> Secretariado Ejecutivo del Sistema Estatal de Seguridad Pública</div>
+        <div>Emilio Carranza esq. Ejército Nacional S/N, colonia Centro, C.P. 28000, Colima, Colima, México. Tel (312) 316-2603</div>
+        <div><a href="http://www.secretariadoejecutivo.col.gob.mx" target="_blank">www.secretariadoejecutivo.col.gob.mx</a></div>
 	</footer>
 
     <!-- DIV MODAL PARA CAMBIAR LA CONTRASEÑA -->
-    <div class="modal fade" id="modalCambiarPassword" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="modalCambiarPassword" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <div class="modal-header"> <!-- ENCABEZADO DEL PANEL -->
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">CAMBIAR CONTRASEÑA DE USUARIO <span class="text-danger"><strong><?php echo $_SESSION['usuario']; ?></strong></span></h4>
+					<h5 class="modal-title">CAMBIAR CONTRASEÑA DE USUARIO <span class="text-danger"><strong><?php echo $GLOBALS['usuario']; ?></strong></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div> <!-- modal-header -->
                 
                 <div class="modal-body"> <!-- CONTENIDO DEL PANEL -->
-                
-                    <form id="frmModalCambiarPassword"> 
-                        <p class="text-warning">*La contraseña debe contener entre 6 y 20 caracteres.</p>
-                        <p class="text-warning">*La contraseña no debe ser igual al nombre de usuario.</p>
-                        <p class="text-warning">*La contraseña no debe contener espacios en blanco.</p>
 
-                        <input type="hidden" name="id_usuario" value="<?php echo $_SESSION['id_usuario']; ?>">
+					<p class="text-warning m-0">*La contraseña debe contener entre 6 y 20 caracteres.</p>
+                    <p class="text-warning m-0 ">*La contraseña no debe ser igual al nombre de usuario.</p>
+					<p class="text-warning m-0">*La contraseña no debe contener espacios en blanco.</p>
+					<hr>
+
+                    <form id="frmModalCambiarPassword">
+                        
+                        <input type="hidden" name="id_usuario" value="<?php echo $GLOBALS['idUsuario']; ?>">
 
                         <div class="form-group">
                             <label>Nueva contraseña</label>
