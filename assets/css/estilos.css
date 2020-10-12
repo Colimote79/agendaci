@@ -1,0 +1,209 @@
+/*
+Ejemplo de uso de variables en CSS
+
+DEFINICION:
+:root {
+  --bg-color: blue;
+  --fuente12: 12px;
+}
+
+USO:
+div {
+  font-size: var(--fuente12);
+  background-color: var(--bg-color);
+}
+*/
+
+input.mayusculas, textarea.mayusculas {
+  text-transform: uppercase;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+  font-size: 2em;
+  font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+  font-weight: bold;
+  line-height: 1.2em;
+  color: dimgray;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #02598B;
+  margin: 0px;
+  margin-left: 10px;
+}
+  h2 span { color: #636363; }
+  h2 i    { color: #636363; }
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+  min-height:115px;
+}
+
+input[readonly], textarea[readonly] {
+  background-color:#EEEEEE;
+  cursor: not-allowed;
+}
+
+input[required], textarea[required], select[required] {
+  border-color: red;
+}
+
+input[required]:focus, textarea[required]:focus, select[required]:focus {
+  border-color: red;
+}
+
+label span {
+  color: red;
+}
+
+.font-white {
+  color: white;
+}
+
+footer {
+  bottom: 0;
+  height: 60px;
+  font-size: 12px;
+}
+
+footer div { text-align: center; }
+
+legend {
+  background-color: lightgray;
+  border-radius: 5px;
+  font-family: "Open Sans", Arial, Helvetica, Sans-Serif;
+  font-weight: bold;
+  font-size: 1em;
+  color: #02598B;
+  margin-left: 5px;
+  padding-left: 5px;
+  padding-right: 0px;
+  margin-left: 0px;
+}
+
+.tabla {
+  width: 100%;
+  background: white;
+  padding: 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.borde-oscuro {
+  background: white;
+  padding: 10px;
+  border: 1px solid;
+  border-color: dimgray;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.borde-medio {
+  background: white;
+  padding: 10px;
+  border: 1px solid;
+  border-color: gray;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.borde-claro {
+  background: white;
+  padding: 10px;
+  border: 1px solid;
+  border-color: lightgray;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.flex-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-izquierda {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-justificado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.divisor-blanco {
+  height: 10px; 
+  background-color: white;
+}
+
+.divisor-dash {
+  border-top: 2px dashed grey;
+  height: 0;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.divisor-tri {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  height: 3px;
+  width: 100%;
+}
+
+div.well {
+  padding: 10px;
+  margin-bottom: 8px;
+  border-color: #636363;
+}
+
+.flotante-izq {
+  float: left;
+  z-index: 1;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  font-family: 'Roboto','sans-serif';
+  font-size: 12px;
+}
+
+.flotante-der {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  font-family: 'Roboto','sans-serif';
+  font-size: 12px;
+}
+
+/* PARA PANTALLAS MENORES A 890px */
+@media (max-width:890px) {
+  footer {
+    font-size: 10px;
+  }
+}
+
+/* PARA PANTALLAS MENORES A 768px */
+@media (max-width:768px) {
+  
+  footer {
+    height: 0;
+    display: none !important;
+  }
+
+}
