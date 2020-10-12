@@ -22,14 +22,19 @@
                 <div class="modal-body"> <!-- CONTENIDO DEL PANEL -->
 
 					<p class="text-warning m-0">*La contraseña debe contener entre 6 y 20 caracteres.</p>
-                    <p class="text-warning m-0 ">*La contraseña no debe ser igual al nombre de usuario.</p>
+                    <p class="text-warning m-0">*La contraseña no debe ser igual al nombre de usuario.</p>
 					<p class="text-warning m-0">*La contraseña no debe contener espacios en blanco.</p>
 					<hr>
 
                     <form id="frmModalCambiarPassword">
                         
                         <input type="hidden" name="id_usuario" value="<?php echo $GLOBALS['idUsuario']; ?>">
-
+						
+						<div class="form-group">
+                            <label>Contraseña actual</label>
+                            <input type="password" id="txtPassActual" name="passActual" maxlength="20" pattern="[A-Za-z0-9.-_]{4,20}" class="form-control" required autocomplete="off">
+						</div>
+						
                         <div class="form-group">
                             <label>Nueva contraseña</label>
                             <input type="password" id="txtPassNuevo" name="password" maxlength="20" pattern="[A-Za-z0-9.-_]{6,20}" class="form-control" required autocomplete="off">
@@ -69,8 +74,10 @@
 	frmModalCambiarPassword.addEventListener('submit', function(e) {
 		e.preventDefault();
 
-		if (validarContraseñas() == false) {
-			alerta("Las contraseñas no coinciden.", 2);
+		let respuesta = validarContraseñas();
+
+		if (respuesta.resultado == false) {
+			alerta(respuesta.mensaje, 2);
 			return false;
 		}
 
@@ -79,27 +86,52 @@
 			css: { width: '300px', top: ($(window).height() - 300) /2 + 'px', left: ($(window).width() - 300) /2 + 'px' }
 		});
 
-		let datos = new FormData(frmModalCambiarPassword);
-		datos.append('aplicativo', <?php echo IDAPLICATIVO ?>);
+		let usuario = "<?php echo $GLOBALS['usuario'] ?>";
 
-		fetch( "http://10.20.4.54/seus/webservices/actualizarpassword", { method: 'POST', body: datos } )
+		let datosVerificar = new FormData();
+		datosVerificar.append("usuario", usuario);
+		datosVerificar.append("password", $("#txtPassActual").val() );
+		
+		fetch( "http://10.20.4.54/seus/webservices/verificarpassword", { method: 'POST', body: datosVerificar } )
 		.then( res => res.json() )
 		.then( data => {
-		  
-			$.unblockUI();
-
-			$("#modalCambiarPassword").modal("hide");
 
 			if (!data.error) { // NO HUBO ERROR EN LA CONSULTA
-				alerta(data.mensaje, 1 );
+
+				let datosActualizar = new FormData();
+				datosActualizar.append("id_usuario", "<?php echo $GLOBALS['idUsuario'] ?>");
+				datosActualizar.append("password", $("#txtPassNuevo").val() );
+				datosActualizar.append('aplicativo', <?php echo IDAPLICATIVO ?>);
+
+				fetch( "http://10.20.4.54/seus/webservices/actualizarpassword", { method: 'POST', body: datosActualizar } )
+				.then( res => res.json() )
+				.then( data => {
+
+					$.unblockUI();
+					
+					if (!data.error) { // NO HUBO ERROR EN LA CONSULTA
+						alerta(data.mensaje, 1 );
+						$("#modalCambiarPassword").modal("hide");
+						frmModalCambiarPassword.reset();
+					} else { // MENSAJE DE ADVERTENCIA EN LA CONSULTA
+						alerta(data.mensaje, 2);
+						frmModalCambiarPassword.reset();
+					}
+				})
+				.catch( error => {
+					$.unblockUI();
+					$("#modalCambiarPassword").modal("hide");
+					alerta("Error: " + error, 3);
+				});
 			} else { // MENSAJE DE ADVERTENCIA EN LA CONSULTA
+				$.unblockUI();
 				alerta(data.mensaje, 2);
-		  	}
+				//form.reset();
+			}
 		})
 		.catch( error => {
 			$.unblockUI();
-			$("#modalCambiarPassword").modal("hide");
-			alerta("Error al realizar la consulta: " + error, 3);
+			alerta("Error: " + error, 3);
 		});
 	});
 
@@ -109,20 +141,26 @@
 	}
 
 	$('#modalCambiarPassword').on('shown.bs.modal', function() {
-		$('#txtPassNuevo').focus();
+		$('#txtPassActual').focus();
 	});
 
 	function validarContraseñas() {
-		let OK = true;
 
-		let pass1 = $("#txtPassNuevo").val();
-		let pass2 = $("#txtPassConfirmar").val();
+		let usuario = "<?php echo $GLOBALS['usuario'] ?>";
+		let pass1   = $("#txtPassNuevo").val();
+		let pass2   = $("#txtPassConfirmar").val();
+
+		console.log(usuario, pass1, pass2);
 
 		if (pass1 !== pass2) {
-			OK = false;
+			return { "resultado": false, "mensaje": "Las contraseñas no coinciden." }
 		}
 
-		return OK;
+		if (usuario === pass1) {
+			return { "resultado": false, "mensaje": "El password no puede ser igual que el usuario." }
+		}
+
+		return { "resultado": true, "mensaje": "Las contraseñas son válidas" }
 	}
 
 </script>
