@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '10.20.4.54\SQLSRV',
-	'username' => 'app_seus',
-	'password' => 'S3us$2020',
-	'database' => 'seus',
-	'dbdriver' => 'sqlsrv',
+	'hostname' => '',
+	'username' => '',
+	'password' => '',
+	'database' => '',
+	'dbdriver' => '',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
