@@ -57,7 +57,7 @@ BODY TAG OPTIONS:
 <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-dark navbar-secondary">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -103,7 +103,7 @@ BODY TAG OPTIONS:
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- User image -->
-                    <li class="user-header bg-primary">
+                    <li class="user-header bg-gray-dark color-palette">
                     <img src="<?php echo IMG ?>usuario-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 
                     <p>
@@ -127,7 +127,7 @@ BODY TAG OPTIONS:
     </nav> <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-warning elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
             <img src="<?php echo IMG ?>logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -139,9 +139,9 @@ BODY TAG OPTIONS:
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item"><a href="<?php echo URL ?>index.php/inicio" class="nav-link active"><i class="nav-icon fas fa-home"></i><p>Inicio</p></a></li>
-                    <li class="nav-item"><a href="<?php echo URL ?>index.php/agenda/index" class="nav-link"><i class="nav-icon fas fa-user-plus"></i><p>Nuevo</p></a></li>
-                    <li class="nav-item"><a href="<?php echo URL ?>index.php/agenda/consulta" class="nav-link"><i class="nav-icon fas fa-users"></i><p>Consulta</p></a></li>
+                    <li class="nav-item"><a id="liHome"  href="<?php echo URL ?>index.php/inicio" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Inicio</p></a></li>
+                    <li class="nav-item"><a id="liNuevo" href="<?php echo URL ?>index.php/agenda/nuevo" class="nav-link"><i class="nav-icon fas fa-user-plus"></i><p>Nuevo</p></a></li>
+                    <li class="nav-item"><a id="liConsulta" href="<?php echo URL ?>index.php/agenda/consulta" class="nav-link"><i class="nav-icon fas fa-users"></i><p>Consulta</p></a></li>
                 </ul>
             </nav> <!-- /.sidebar-menu -->
         </div> <!-- /.sidebar -->

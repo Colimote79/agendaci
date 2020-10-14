@@ -9,10 +9,10 @@ class Agenda extends CI_Controller {
         //$this->load->model('agenda_model');
     }
 
-	public function index() {
+	public function nuevo() {
 		$data['title'] = "Nuevo contacto";
         $this->load->view('plantilla/encabezado');
-        $this->load->view('agenda/index', $data);
+        $this->load->view('agenda/nuevo', $data);
         $this->load->view('plantilla/pie');
     }
 
