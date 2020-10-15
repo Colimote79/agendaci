@@ -9,12 +9,3 @@
     </div>
     
 </div> <!-- container-fluid -->
-
-<script>
-
-	//El DOM (controles) esta ya cargado. --> Inicializamos controles.
-	$(document).ready(function () {	
-	  $("#liHome").addClass("active");
-	});
-
-</script>

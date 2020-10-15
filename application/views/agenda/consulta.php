@@ -2,7 +2,7 @@
 
 	<div class="card">
 		<div class="card-body">
-			<h2><i class="fas fa-users"></i>&nbsp;&nbsp;<?php echo $title ?></h2>
+			<h2><i class="fas fa-users mr-2"></i><?php echo $title ?></h2>
 		</div>
 	</div>
 
@@ -24,12 +24,3 @@
 	</div> <!-- tabla -->
 
 </div> <!-- container-fluid -->
-
-<script>
-
-	//El DOM (controles) esta ya cargado. --> Inicializamos controles.
-	$(document).ready(function () {	
-	  $("#liConsulta").addClass("active");
-	});
-
-</script>

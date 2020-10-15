@@ -162,6 +162,30 @@
 
 		return { "resultado": true, "mensaje": "Las contraseñas son válidas" }
 	}
+	
+	function navegacionSideBarMenu() {
+		
+		let url = window.location.href;
+
+		const allLinks = document.querySelectorAll('#sideBarMenu .nav-item a');
+
+		for (var i = 0; i < allLinks.length; i++) {
+			allLinks[i].classList.remove("active");
+		}
+		
+		const currentLink = [...allLinks].filter(e => {
+			return e.href == url;
+		});
+
+		if (typeof currentLink !== 'undefined') {
+			currentLink[0].classList.add("active");
+		}
+	}
+
+	//El DOM (controles) esta ya cargado. --> Inicializamos controles.
+	$(document).ready(function () {	
+		navegacionSideBarMenu();
+	});
 
 </script>
 

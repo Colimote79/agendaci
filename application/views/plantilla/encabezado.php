@@ -43,16 +43,6 @@
     <script src="<?php echo JS ?>adminlte-3.0.5.min.js"></script>
 </head>
 
-<!--
-BODY TAG OPTIONS:
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
@@ -138,8 +128,8 @@ BODY TAG OPTIONS:
         <div class="sidebar">
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item"><a id="liHome"  href="<?php echo URL ?>index.php/inicio" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Inicio</p></a></li>
+                <ul id="sideBarMenu" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item"><a id="liHome" href="<?php echo URL ?>index.php/inicio" class="nav-link"><i class="nav-icon fas fa-home"></i><p>Inicio</p></a></li>
                     <li class="nav-item"><a id="liNuevo" href="<?php echo URL ?>index.php/agenda/nuevo" class="nav-link"><i class="nav-icon fas fa-user-plus"></i><p>Nuevo</p></a></li>
                     <li class="nav-item"><a id="liConsulta" href="<?php echo URL ?>index.php/agenda/consulta" class="nav-link"><i class="nav-icon fas fa-users"></i><p>Consulta</p></a></li>
                 </ul>
